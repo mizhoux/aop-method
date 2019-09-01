@@ -1,6 +1,7 @@
 package org.mizhou.aop.aspect.processor.impl;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.mizhou.aop.aspect.anno.Sharable;
 
 /**
  * 方法不匹配时的方法切面处理器<br/>
@@ -10,6 +11,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
  * @author 之叶
  * @date   2019/08/28
  */
+@Sharable
 public class MismatchMethodAspectProcessor<R> extends AbstractMethodAspectProcessor<R> {
 
     @Override

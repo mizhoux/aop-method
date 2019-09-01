@@ -23,7 +23,7 @@ public interface MethodAspectProcessor<R> {
      * 用于缓存被 @Sharable 注解的 MethodAspectProcessor（即线程安全可共享的）
      */
     Map<Class, MethodAspectProcessor> PROCESSOR_CACHE = new ConcurrentHashMap<>();
-    
+
     /**
      * 是否是要处理的方法
      *

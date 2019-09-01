@@ -14,7 +14,7 @@ public interface NumberService {
      * @param dividend 被除数
      * @param divisor 除数
      * @return 商
-     * @throws Exception 可能参数的异常（切面会捕获）
+     * @throws Exception 可能产生的异常（切面会捕获）
      */
     int divide(int dividend, int divisor) throws Exception;
 

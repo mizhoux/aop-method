@@ -2,6 +2,7 @@ package org.mizhou.aop.service.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.mizhou.aop.aspect.anno.Sharable;
 import org.mizhou.aop.aspect.processor.impl.AbstractMethodAspectProcessor;
 import org.mizhou.aop.domain.CommonResponse;
 import org.mizhou.aop.domain.base.BaseRequest;
@@ -16,6 +17,7 @@ import java.util.UUID;
  * @author 之叶
  * @date   2019/09/01
  */
+@Sharable
 public class DemoServiceMethodAspectProcessor extends AbstractMethodAspectProcessor<BaseResponse> {
 
     /**
