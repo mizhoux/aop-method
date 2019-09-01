@@ -1,0 +1,11 @@
+### MAVEN ###
+.mvn/
+mvnw*
+target/
+HELP.md
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
