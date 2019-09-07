@@ -95,7 +95,7 @@ public interface MethodAspectProcessor<R> {
      * @return 匹配的切面处理器
      * @throws Exception 反射创建切面处理器时的异常
      */
-    static MethodAspectProcessor get(MethodAspectAnno anno) throws Exception {
+    static MethodAspectProcessor from(MethodAspectAnno anno) throws Exception {
         // 获取方法处理器的类型
         Class<? extends MethodAspectProcessor> processorType = anno.value();
         Sharable sharableAnno = processorType.getAnnotation(Sharable.class);

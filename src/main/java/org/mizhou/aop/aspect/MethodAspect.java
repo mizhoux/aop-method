@@ -36,7 +36,7 @@ public class MethodAspect {
     @Around("methodPointcut() && @annotation(anno)")
     public Object doAround(ProceedingJoinPoint point, MethodAspectAnno anno) throws Throwable {
         // 通过注解获取处理器
-        MethodAspectProcessor processor = MethodAspectProcessor.get(anno);
+        MethodAspectProcessor processor = MethodAspectProcessor.from(anno);
 
         // 方法不匹配，即不是要处理的业务方法
         if (!processor.isMatched(point)) {
