@@ -1,9 +1,9 @@
-package org.mizhou.aop.controller;
+package xyz.mizhoux.aop.controller;
 
-import org.mizhou.aop.domain.DivisionRequest;
-import org.mizhou.aop.domain.DivisionResponse;
-import org.mizhou.aop.service.NumberService;
-import org.mizhou.aop.service.DemoService;
+import xyz.mizhoux.aop.domain.DivisionRequest;
+import xyz.mizhoux.aop.domain.DivisionResponse;
+import xyz.mizhoux.aop.service.NumberService;
+import xyz.mizhoux.aop.service.DemoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

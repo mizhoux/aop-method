@@ -1,7 +1,7 @@
-package org.mizhou.aop.domain;
+package xyz.mizhoux.aop.domain;
 
 import lombok.ToString;
-import org.mizhou.aop.domain.base.BaseResponse;
+import xyz.mizhoux.aop.domain.base.BaseResponse;
 
 /**
  * 除法响应

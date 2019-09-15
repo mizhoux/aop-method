@@ -1,9 +1,9 @@
-package org.mizhou.aop.aspect.processor;
+package xyz.mizhoux.aop.aspect.processor;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.mizhou.aop.aspect.anno.MethodAspectAnno;
-import org.mizhou.aop.aspect.anno.Sharable;
-import org.mizhou.aop.aspect.processor.impl.MismatchMethodAspectProcessor;
+import xyz.mizhoux.aop.aspect.anno.MethodAspectAnno;
+import xyz.mizhoux.aop.aspect.anno.Sharable;
+import xyz.mizhoux.aop.aspect.processor.impl.MismatchMethodAspectProcessor;
 
 import java.lang.reflect.Modifier;
 import java.util.Map;
@@ -115,12 +115,12 @@ public interface MethodAspectProcessor<R> {
             processorType = MismatchMethodAspectProcessor.class;
         }
 
-        // 通过反射新建一个对应的方法处理器
+        // 通过反射新建一个对应的方法切面处理器
         MethodAspectProcessor processor = processorType.newInstance();
 
         // 处理器可共享
         if (sharableAnno != null) {
-            // 对 方法处理器 进行缓存
+            // 对 方法切面处理器 进行缓存
             PROCESSOR_CACHE.put(processorType, processor);
         }
 

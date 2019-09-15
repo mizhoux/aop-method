@@ -1,7 +1,7 @@
-package org.mizhou.aop.service;
+package xyz.mizhoux.aop.service;
 
-import org.mizhou.aop.domain.DivisionRequest;
-import org.mizhou.aop.domain.DivisionResponse;
+import xyz.mizhoux.aop.domain.DivisionRequest;
+import xyz.mizhoux.aop.domain.DivisionResponse;
 
 /**
  * DemoService

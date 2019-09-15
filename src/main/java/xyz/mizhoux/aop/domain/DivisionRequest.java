@@ -1,9 +1,9 @@
-package org.mizhou.aop.domain;
+package xyz.mizhoux.aop.domain;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.mizhou.aop.domain.base.BaseRequest;
+import xyz.mizhoux.aop.domain.base.BaseRequest;
 
 /**
  * 除法请求

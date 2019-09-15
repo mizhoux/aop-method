@@ -1,10 +1,10 @@
-package org.mizhou.aop.service.impl;
+package xyz.mizhoux.aop.service.impl;
 
-import org.mizhou.aop.aspect.anno.MethodAspectAnno;
-import org.mizhou.aop.domain.DivisionRequest;
-import org.mizhou.aop.domain.DivisionResponse;
-import org.mizhou.aop.service.DemoService;
-import org.mizhou.aop.service.aspect.DemoServiceMethodAspectProcessor;
+import xyz.mizhoux.aop.aspect.anno.MethodAspectAnno;
+import xyz.mizhoux.aop.domain.DivisionRequest;
+import xyz.mizhoux.aop.domain.DivisionResponse;
+import xyz.mizhoux.aop.service.DemoService;
+import xyz.mizhoux.aop.service.aspect.DemoServiceMethodAspectProcessor;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;

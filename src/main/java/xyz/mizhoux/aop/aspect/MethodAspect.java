@@ -1,11 +1,11 @@
-package org.mizhou.aop.aspect;
+package xyz.mizhoux.aop.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.mizhou.aop.aspect.anno.MethodAspectAnno;
-import org.mizhou.aop.aspect.processor.MethodAspectProcessor;
+import xyz.mizhoux.aop.aspect.anno.MethodAspectAnno;
+import xyz.mizhoux.aop.aspect.processor.MethodAspectProcessor;
 import org.springframework.stereotype.Component;
 
 /**
@@ -21,7 +21,7 @@ public class MethodAspect {
     /**
      * 方法连接点（处理被 @MethodAspectAnno 注解的方法）
      */
-    @Pointcut("@annotation(org.mizhou.aop.aspect.anno.MethodAspectAnno)")
+    @Pointcut("@annotation(xyz.mizhoux.aop.aspect.anno.MethodAspectAnno)")
     public void methodPointcut() { }
 
     /**

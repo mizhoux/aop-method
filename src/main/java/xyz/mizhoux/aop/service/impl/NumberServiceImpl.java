@@ -1,8 +1,8 @@
-package org.mizhou.aop.service.impl;
+package xyz.mizhoux.aop.service.impl;
 
-import org.mizhou.aop.aspect.anno.MethodAspectAnno;
-import org.mizhou.aop.service.NumberService;
-import org.mizhou.aop.service.aspect.DemoServiceMethodAspectProcessor;
+import xyz.mizhoux.aop.aspect.anno.MethodAspectAnno;
+import xyz.mizhoux.aop.service.NumberService;
+import xyz.mizhoux.aop.service.aspect.DemoServiceMethodAspectProcessor;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;

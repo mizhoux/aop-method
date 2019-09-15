@@ -1,12 +1,12 @@
-package org.mizhou.aop.service.aspect;
+package xyz.mizhoux.aop.service.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.mizhou.aop.aspect.anno.Sharable;
-import org.mizhou.aop.aspect.processor.impl.AbstractMethodAspectProcessor;
-import org.mizhou.aop.domain.CommonResponse;
-import org.mizhou.aop.domain.base.BaseRequest;
-import org.mizhou.aop.domain.base.BaseResponse;
+import xyz.mizhoux.aop.aspect.anno.Sharable;
+import xyz.mizhoux.aop.aspect.processor.impl.AbstractMethodAspectProcessor;
+import xyz.mizhoux.aop.domain.CommonResponse;
+import xyz.mizhoux.aop.domain.base.BaseRequest;
+import xyz.mizhoux.aop.domain.base.BaseResponse;
 import org.slf4j.Logger;
 
 import java.util.UUID;

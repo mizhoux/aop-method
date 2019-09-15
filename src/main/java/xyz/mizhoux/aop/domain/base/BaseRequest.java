@@ -1,4 +1,4 @@
-package org.mizhou.aop.domain.base;
+package xyz.mizhoux.aop.domain.base;
 
 import lombok.Getter;
 import lombok.Setter;

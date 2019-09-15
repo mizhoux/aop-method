@@ -1,4 +1,4 @@
-package org.mizhou.aop.service;
+package xyz.mizhoux.aop.service;
 
 /**
  * NumberService

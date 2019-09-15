@@ -1,4 +1,4 @@
-package org.mizhou.aop.aspect.anno;
+package xyz.mizhoux.aop.aspect.anno;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
