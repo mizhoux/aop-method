@@ -37,9 +37,7 @@ public interface MethodAspectProcessor<R> {
      * @return 返回 true 则表示继续向下执行；返回 false 则表示禁止调用目标方法，
      * 方法切面处理会此时会先调用 getOnForbid 方法获得被禁止执行时的返回值，然后调用 onComplete 方法结束切面
      */
-    default boolean onBefore(ProceedingJoinPoint point) {
-        return true;
-    }
+    default boolean onBefore(ProceedingJoinPoint point) { return true; }
 
     /**
      * 禁止调用目标方法时（即 onBefore 返回 false），执行该方法获得返回值
@@ -47,9 +45,7 @@ public interface MethodAspectProcessor<R> {
      * @param point 目标方法的连接点
      * @return 禁止调用目标方法时的返回值
      */
-    default R getOnForbid(ProceedingJoinPoint point) {
-        return null;
-    }
+    default R getOnForbid(ProceedingJoinPoint point) { return null; }
 
     /**
      * 抛出异常时，执行的动作
@@ -77,9 +73,5 @@ public interface MethodAspectProcessor<R> {
      * @param thrown    目标方法执行时是否抛出异常
      * @param result    执行获得的结果
      */
-    default void onComplete(ProceedingJoinPoint point, long startTime, boolean forbidden, boolean thrown, R result) {
-
-    }
-
+    default void onComplete(ProceedingJoinPoint point, long startTime, boolean forbidden, boolean thrown, R result) { }
 }
-

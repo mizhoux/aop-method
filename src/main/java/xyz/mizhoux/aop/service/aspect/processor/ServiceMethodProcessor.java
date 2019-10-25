@@ -54,9 +54,8 @@ public class ServiceMethodProcessor extends AbstractMethodAspectProcessor<BaseRe
     @Override
     @SuppressWarnings("unchecked")
     public BaseResponse getOnThrow(ProceedingJoinPoint point, Throwable e) {
-        MethodSignature               signature  = (MethodSignature) point.getSignature();
-        Class<? extends BaseResponse> returnType = signature.getReturnType();
-
+        // 获得返回类型
+        Class<? extends BaseResponse> returnType = getReturnType(point);
         // 构造抛出异常时的返回值
         BaseResponse response = newInstance(returnType);
 

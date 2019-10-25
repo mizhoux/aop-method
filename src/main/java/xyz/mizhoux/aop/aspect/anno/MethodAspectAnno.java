@@ -8,7 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 方法切面注解
+ * 用于方法切面的注解
  *
  * @author 之叶
  * @date   2019/09/01
@@ -17,6 +17,11 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MethodAspectAnno {
 
+    /**
+     * 获得方法切面的处理器
+     *
+     * @return 方法切面的处理器
+     */
     Class<? extends MethodAspectProcessor> value();
 
 }

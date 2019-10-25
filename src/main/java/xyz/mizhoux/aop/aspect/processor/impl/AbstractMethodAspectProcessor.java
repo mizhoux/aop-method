@@ -80,4 +80,20 @@ public abstract class AbstractMethodAspectProcessor<R> implements MethodAspectPr
 
         return className + "." + methodName;
     }
+
+    /**
+     * 获得目标方法的返回类型
+     *
+     * @param point 连接点
+     * @return 目标方法的返回类型
+     */
+    protected Class getReturnType(ProceedingJoinPoint point) {
+        // 获得方法签名
+        MethodSignature signature = (MethodSignature) point.getSignature();
+        // 获得方法
+        Method method = signature.getMethod();
+
+        return method.getReturnType();
+    }
+
 }
