@@ -1,7 +1,7 @@
 package xyz.mizhoux.aop.aspect.processor.impl;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import xyz.mizhoux.aop.aspect.anno.Sharable;
+import org.springframework.stereotype.Component;
 
 /**
  * 方法不匹配时的方法切面处理器<br/>
@@ -11,7 +11,7 @@ import xyz.mizhoux.aop.aspect.anno.Sharable;
  * @author 之叶
  * @date   2019/08/28
  */
-@Sharable
+@Component
 public class MismatchMethodAspectProcessor<R> extends AbstractMethodAspectProcessor<R> {
 
     @Override
@@ -20,13 +20,8 @@ public class MismatchMethodAspectProcessor<R> extends AbstractMethodAspectProces
     }
 
     @Override
-    public R returnWhenThrowing(ProceedingJoinPoint point, Throwable e) {
+    public R getOnThrow(ProceedingJoinPoint point, Throwable e) {
         // 不会被调用
         return null;
-    }
-
-    @Override
-    public void onComplete(ProceedingJoinPoint point, long startTime, R result) {
-        // 不会被调用
     }
 }

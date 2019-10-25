@@ -11,7 +11,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 /**
- * 提供默认的（1）方法不匹配时记录日志、（2）记录异常日志的功能
+ * 提供默认的两个功能：<br/>
+ * （1）方法不匹配时记录日志<br/>
+ * （2）目标方法抛出异常时记录日志
  *
  * @author 之叶
  * @date   2019/08/28
@@ -32,13 +34,15 @@ public abstract class AbstractMethodAspectProcessor<R> implements MethodAspectPr
         // 获得方法切面处理器的 Class
         Class<? extends MethodAspectProcessor> processorType = anno.value();
 
+        String processorName = processorType.getSimpleName();
+
         // 如果是接口或者抽象类
         if (processorType.isInterface() || Modifier.isAbstract(processorType.getModifiers())) {
-            logger.warn("{} 需要指定具体的切面处理器，因为 {} 是接口或者抽象类", logTag, processorType.getSimpleName());
+            logger.warn("{} 需要指定具体的切面处理器，因为 {} 是接口或者抽象类", logTag, processorName);
             return;
         }
 
-        logger.warn("{} 不是 {} 可以处理的方法", logTag, processorType.getSimpleName());
+        logger.warn("{} 不是 {} 可以处理的方法，或者 {} 在 Spring 容器中不存在", logTag, processorName, processorName);
     }
 
     @Override

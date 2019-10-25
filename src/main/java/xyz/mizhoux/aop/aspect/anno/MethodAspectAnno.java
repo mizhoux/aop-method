@@ -8,7 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * MethodAspectAnno
+ * 方法切面注解
  *
  * @author 之叶
  * @date   2019/09/01

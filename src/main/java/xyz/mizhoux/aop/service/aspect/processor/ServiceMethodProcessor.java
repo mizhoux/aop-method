@@ -1,24 +1,24 @@
-package xyz.mizhoux.aop.service.aspect;
+package xyz.mizhoux.aop.service.aspect.processor;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
-import xyz.mizhoux.aop.aspect.anno.Sharable;
+import org.slf4j.Logger;
+import org.springframework.stereotype.Component;
 import xyz.mizhoux.aop.aspect.processor.impl.AbstractMethodAspectProcessor;
 import xyz.mizhoux.aop.domain.CommonResponse;
 import xyz.mizhoux.aop.domain.base.BaseRequest;
 import xyz.mizhoux.aop.domain.base.BaseResponse;
-import org.slf4j.Logger;
 
 import java.util.UUID;
 
 /**
- * DemoServiceMethodAspectProcessor
+ * 业务方法切面处理器
  *
  * @author 之叶
  * @date   2019/09/01
  */
-@Sharable
-public class DemoServiceMethodAspectProcessor extends AbstractMethodAspectProcessor<BaseResponse> {
+@Component
+public class ServiceMethodProcessor extends AbstractMethodAspectProcessor<BaseResponse> {
 
     /**
      * 是否是要处理的方法<br/>
@@ -45,37 +45,7 @@ public class DemoServiceMethodAspectProcessor extends AbstractMethodAspectProces
     }
 
     /**
-     * 正常返回时，执行的动作
-     *
-     * @param point 方法的连接点
-     * @param result 方法返回的结果
-     */
-    @Override
-    public void onReturn(ProceedingJoinPoint point, BaseResponse result) {
-        String logTag = getLogTag(point);
-        Logger logger = getLogger(point);
-
-        result.setSuccess(true);
-        logger.info("{} 正常调用", logTag);
-    }
-
-    /**
-     * 抛出异常时，执行的动作
-     *
-     * @param point 方法的连接点
-     * @param e 抛出的异常
-     */
-    @Override
-    public void onThrow(ProceedingJoinPoint point, Throwable e) {
-        Logger logger = getLogger(point);
-        String logTag = getLogTag(point);
-
-        logger.error("{} 调用出错", logTag, e);
-    }
-
-    /**
      * 构建抛出异常时的返回值<br/>
-     * 不知道起什么名字好，如果大家有好的建议，欢迎留言
      *
      * @param point 方法的连接点
      * @param e 抛出的异常
@@ -83,7 +53,7 @@ public class DemoServiceMethodAspectProcessor extends AbstractMethodAspectProces
      */
     @Override
     @SuppressWarnings("unchecked")
-    public BaseResponse returnWhenThrowing(ProceedingJoinPoint point, Throwable e) {
+    public BaseResponse getOnThrow(ProceedingJoinPoint point, Throwable e) {
         MethodSignature signature = (MethodSignature) point.getSignature();
         Class<? extends BaseResponse> returnType = signature.getReturnType();
 
@@ -104,21 +74,19 @@ public class DemoServiceMethodAspectProcessor extends AbstractMethodAspectProces
      * @param result 执行获得的结果
      */
     @Override
-    public void onComplete(ProceedingJoinPoint point, long startTime, BaseResponse result) {
-        BaseResponse response = (BaseResponse) result;
-
+    public void onComplete(ProceedingJoinPoint point, long startTime, boolean forbidden, boolean thrown, BaseResponse result) {
         // 设置方法调用的时间
-        response.setSysTime(startTime);
+        result.setSysTime(startTime);
         // 设置方法调用的机器
-        response.setHost(getHost());
+        result.setHost(getHost());
         // 设置方法调用耗时
-        response.setCostTime(System.currentTimeMillis() - startTime);
+        result.setCostTime(System.currentTimeMillis() - startTime);
 
         Logger logger = getLogger(point);
         // point.getArgs() 获得方法调用入参
         Object request = point.getArgs()[0];
         // 记录方法调用信息
-        logger.info("{}, request={}, response={}", getLogTag(point), request, response);
+        logger.info("{}, request={}, response={}", getLogTag(point), request, result);
     }
 
     private BaseResponse newInstance(Class<? extends BaseResponse> type) {

@@ -2,7 +2,7 @@ package xyz.mizhoux.aop.service.impl;
 
 import xyz.mizhoux.aop.aspect.anno.MethodAspectAnno;
 import xyz.mizhoux.aop.service.NumberService;
-import xyz.mizhoux.aop.service.aspect.DemoServiceMethodAspectProcessor;
+import xyz.mizhoux.aop.service.aspect.processor.ServiceMethodProcessor;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class NumberServiceImpl implements NumberService {
 
     @Override
-    @MethodAspectAnno(DemoServiceMethodAspectProcessor.class)
+    @MethodAspectAnno(ServiceMethodProcessor.class)
     public int divide(int dividend, int divisor) throws Exception {
         // 模拟检查业务参数
         // ...检查业务参数...
