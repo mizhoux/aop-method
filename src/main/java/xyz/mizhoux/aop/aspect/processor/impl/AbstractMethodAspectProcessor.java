@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 /**
- * 提供默认的两个功能：<br/>
+ * 抽象方法切面处理器，提供两个功能的默认实现：<br/>
  * （1）方法不匹配时记录日志<br/>
  * （2）目标方法抛出异常时记录日志
  *

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.TimeUnit;
 
 /**
- * NumberServiceImpl
+ * NumberService 的实现
  *
  * @author 之叶
  * @date   2019/09/01
@@ -23,10 +23,7 @@ public class NumberServiceImpl implements NumberService {
         // ...检查业务参数...
         TimeUnit.MILLISECONDS.sleep(300);
 
-        // 模拟执行业务
-        int result = dividend / divisor;
-
-        return result;
+        return dividend / divisor;
     }
 
 }

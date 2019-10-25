@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.TimeUnit;
 
 /**
- * DemoServiceImpl
+ * DemoService 的实现
  *
  * @author 之叶
  * @date   2019/09/01

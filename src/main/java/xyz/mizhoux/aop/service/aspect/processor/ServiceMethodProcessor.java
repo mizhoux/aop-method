@@ -24,13 +24,13 @@ public class ServiceMethodProcessor extends AbstractMethodAspectProcessor<BaseRe
      * 是否是要处理的方法<br/>
      * 限定方法类型入参匹配 BaseRequest，返回值匹配 BaseResponse
      *
-     * @param point 方法的连接点
-     * @return 是要处理的方法返回 true，否则返回 false
+     * @param point 目标方法的连接点
+     * @return 如果是要处理的方法返回 true，否则返回 false
      */
     @Override
     public boolean isMatched(ProceedingJoinPoint point) {
-        MethodSignature signature = (MethodSignature) point.getSignature();
-        Class returnType = signature.getReturnType();
+        MethodSignature signature  = (MethodSignature) point.getSignature();
+        Class           returnType = signature.getReturnType();
 
         // returnType 是 BaseResponse 或其子类型
         if (BaseResponse.class.isAssignableFrom(returnType)) {
@@ -45,16 +45,16 @@ public class ServiceMethodProcessor extends AbstractMethodAspectProcessor<BaseRe
     }
 
     /**
-     * 构建抛出异常时的返回值<br/>
+     * 获得抛出异常时的返回值<br/>
      *
-     * @param point 方法的连接点
-     * @param e 抛出的异常
+     * @param point 目标方法的连接点
+     * @param e     抛出的异常
      * @return 抛出异常时的返回值
      */
     @Override
     @SuppressWarnings("unchecked")
     public BaseResponse getOnThrow(ProceedingJoinPoint point, Throwable e) {
-        MethodSignature signature = (MethodSignature) point.getSignature();
+        MethodSignature               signature  = (MethodSignature) point.getSignature();
         Class<? extends BaseResponse> returnType = signature.getReturnType();
 
         // 构造抛出异常时的返回值
@@ -69,9 +69,9 @@ public class ServiceMethodProcessor extends AbstractMethodAspectProcessor<BaseRe
     /**
      * 切面完成时，执行的动作
      *
-     * @param point 方法的连接点
+     * @param point     目标方法的连接点
      * @param startTime 执行的开始时间
-     * @param result 执行获得的结果
+     * @param result    执行获得的结果
      */
     @Override
     public void onComplete(ProceedingJoinPoint point, long startTime, boolean forbidden, boolean thrown, BaseResponse result) {
